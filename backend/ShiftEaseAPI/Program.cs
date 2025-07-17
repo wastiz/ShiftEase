@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ShiftEaseAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsAllowAll", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "http://shiftease-frontend")
+        policy.WithOrigins(
+                "http://localhost:3006",
+                "http://frontend:3006",
+                "http://frontend:80")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -50,7 +54,12 @@ builder.Services.AddAuthentication(options =>
 
 // AppDbContext to DI
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"), npgsql =>
+    {
+        npgsql.MigrationsAssembly("DAL");
+    });
+});
 // Repositories to DI
 builder.Services.AddScoped<IEmployerRepository, EmployerRepository>();
 builder.Services.AddScoped<IOrganizationRepository, OrganizationRepository>();
@@ -87,11 +96,8 @@ builder.Services.AddSwaggerGen(c =>
 // Building App
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
-}
+//For automat migrations
+app.ApplyMigrationsAsync();
 
 app.UseRouting();
 

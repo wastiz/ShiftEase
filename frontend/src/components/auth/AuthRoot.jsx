@@ -8,9 +8,9 @@ import Form from 'react-bootstrap/Form';
 import LoadingSpinner from '../assets/LoadingSpinner.jsx';
 import ToggleGroup from "../assets/ToggleGroup.jsx";
 import TextInput from "../assets/Inputs/TextInput.jsx";
+import publicApi from "../../publicApi.js";
 
 function AuthRoot() {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(true);
     const [isEmployer, setIsEmployer] = useState(true);
@@ -34,7 +34,7 @@ function AuthRoot() {
         setLoading(true);
         if (!isEmployer) {
             try {
-                const response = await fetch(`${api_route}/identity/login/employee`, {
+                const response = await fetch(`/api/identity/login/employee`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ function AuthRoot() {
             }
         } else {
             try {
-                const response = await fetch(`${api_route}/identity/login/employer`, {
+                const response = await fetch(`/api/identity/login/employer`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -90,42 +90,41 @@ function AuthRoot() {
         }
     };
 
-    //Register
+    // Register
     const handleRegisterSubmit = async (data) => {
         clearErrors("common");
         setLoading(true);
+
         if (data.password !== data.repeatPassword) {
             setError("repeatPassword", { type: "manual", message: "Passwords do not match" });
             return setLoading(false);
         }
 
-        try {
-            const response = await fetch(`${api_route}/identity/register/employer`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    firstName: data.firstName,
-                    lastName: data.lastName,
-                    email: data.email.trim(),
-                    phone: data.phone.trim(),
-                    password: data.password.trim(),
-                }),
-            });
+        const payload = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email.trim(),
+            phone: data.phone.trim(),
+            password: data.password.trim(),
+        };
 
-            const result = await response.json();
+        try {
+            const response = await publicApi.post("/identity/register/employer", payload);
+            const result = response.data;
+
+            localStorage.setItem("accessToken", result.accessToken);
+            localStorage.setItem("refreshToken", result.refreshToken);
+
+            navigate("/organizations");
+        } catch (error) {
+            const message =
+                error.response?.data?.message || "An error occurred, please try again";
+            setError("common", { type: "manual", message });
+        } finally {
             setLoading(false);
-            if (response.ok) {
-                localStorage.setItem('accessToken', result.accessToken);
-                localStorage.setItem('refreshToken', result.refreshToken);
-                navigate('/organizations');
-            } else {
-                setError("common", { type: "manual", message: result.message });
-            }
-        } catch (err) {
-            setLoading(false);
-            setError("common", { type: "manual", message: "An error occurred, please try again" });
         }
     };
+
 
     const handleChange = () => {
         clearErrors("common");

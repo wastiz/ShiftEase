@@ -47,11 +47,8 @@ namespace DAL
                 new WeekDay { Id = 7, Name = "Sunday" }
             );
         }
-
-        public AppDbContext(DbContextOptions<AppDbContext>? options = null)
-            : base(options ?? new DbContextOptionsBuilder<AppDbContext>()
-                .UseNpgsql($"Host=localhost;Database=shift_ease;Username=postgres;Password=admin")
-                .Options)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
         {
         }
     }

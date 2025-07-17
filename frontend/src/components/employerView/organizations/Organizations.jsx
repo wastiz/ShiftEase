@@ -10,7 +10,6 @@ import {LuLogOut} from "react-icons/lu";
 import {Card} from "react-bootstrap";
 
 const Organizations = () => {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const navigate = useNavigate();
     const [organizations, setOrganizations] = useState([]);
     //For Modal
@@ -27,7 +26,7 @@ const Organizations = () => {
         const fetchOrganizations = async () => {
 
             try {
-                const response = await api.get(`${api_route}/organization/by-employer-id`);
+                const response = await api.get(`/organization/by-employer-id`);
 
                 if (response.status !== 200) {
                     throw new Error(`Failed to fetch: ${response.statusText}`);
@@ -45,7 +44,7 @@ const Organizations = () => {
 
     const handleDeleteClick = async () => {
         try {
-            await api.delete(`${api_route}/organization/${orgIdToDelete}`);
+            await api.delete(`/organization/${orgIdToDelete}`);
 
             toast.success('Organization deleted successfully', {className: "toast-success"});
             handleModalClose();

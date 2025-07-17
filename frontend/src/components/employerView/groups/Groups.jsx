@@ -14,7 +14,6 @@ import ColorInput from "../../assets/Inputs/ColorInput.jsx";
 import {Card} from "react-bootstrap";
 
 function Groups() {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const [groups, setGroups] = useState([]);
     const [editingGroupId, setEditingGroupId] = useState(null);
     const [isFormModalOpen, setIsFormModalOpen] = useState(false);
@@ -31,7 +30,7 @@ function Groups() {
     useEffect(() => {
         const fetchGroups = async () => {
             try {
-                const response = await api.get(`${api_route}/group/by-organization-id`);
+                const response = await api.get(`/group/by-organization-id`);
                 if (response.status === 200) {
                     setGroups(response.data);
                 } else {
@@ -80,8 +79,8 @@ function Groups() {
             };
 
             const response = editingGroupId
-                ? await api.put(`${api_route}/group/${editingGroupId}`, payload)
-                : await api.post(`${api_route}/group`, payload);
+                ? await api.put(`/group/${editingGroupId}`, payload)
+                : await api.post(`/group`, payload);
 
             if (![200, 201].includes(response.status)) throw new Error("Failed to save group");
 
@@ -104,7 +103,7 @@ function Groups() {
 
     const handleDelete = async (groupId) => {
         try {
-            const response = await api.delete(`${api_route}/group/${groupId}`);
+            const response = await api.delete(`/group/${groupId}`);
             if (response.status === 200) {
                 setGroups(groups.filter(group => group.id !== groupId));
                 toast.success('Group deleted successfully!', {className: "toast-success"});

@@ -30,7 +30,6 @@ function transformWorkDays(input) {
 }
 
 const OrganizationAddForm = () => {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const { register, handleSubmit, setValue, reset, formState: { errors }, watch } = useForm();
     const { orgId } = useParams();
     const navigate = useNavigate();
@@ -95,7 +94,7 @@ const OrganizationAddForm = () => {
 
         const fetchOrganization = async () => {
             try {
-                const response = await api.get(`${api_route}/organization/${orgId}`);
+                const response = await api.get(`/organization/${orgId}`);
 
                 if (response.status !== 200) {
                     throw new Error("Failed to fetch organization");
@@ -171,9 +170,9 @@ const OrganizationAddForm = () => {
             let response;
 
             if (orgId) {
-                response = await api.put(`${api_route}/organization/${orgId}`, organizationDto);
+                response = await api.put(`/organization/${orgId}`, organizationDto);
             } else {
-                response = await api.post(`${api_route}/organization`, organizationDto);
+                response = await api.post(`/organization`, organizationDto);
             }
 
             if (response.status !== 200) {
