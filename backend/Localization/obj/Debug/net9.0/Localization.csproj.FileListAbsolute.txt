@@ -1,0 +1,22 @@
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\bin\Debug\net9.0\Localization.deps.json
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\bin\Debug\net9.0\Localization.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\bin\Debug\net9.0\Localization.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.AssemblyInfoInputs.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.AssemblyInfo.cs
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.csproj.CoreCompileInputs.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\refint\Localization.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\Localization\obj\Debug\net9.0\ref\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\bin\Debug\net9.0\Localization.deps.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\bin\Debug\net9.0\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\bin\Debug\net9.0\Localization.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.AssemblyInfoInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.AssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.csproj.CoreCompileInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\refint\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\Localization.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Debug\net9.0\ref\Localization.dll

@@ -1,0 +1,12 @@
+.shift-table-header {
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.shift-table-header .item {
+    width: auto;
+}

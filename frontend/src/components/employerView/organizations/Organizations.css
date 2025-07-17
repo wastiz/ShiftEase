@@ -1,0 +1,47 @@
+.organizations-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+}
+
+.organizations-header {
+    color: var(--neutral);
+    background-color: var(--bg-primary);
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.organizations-header p {
+    font-size: 0.5em;
+    cursor: pointer;
+}
+
+.organizations-header p:hover {
+    color: var(--primary);
+}
+
+.empty-organizations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.empty-organizations p {
+    margin-bottom: 2em;
+}
+
+.add-organization:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.03);
+}

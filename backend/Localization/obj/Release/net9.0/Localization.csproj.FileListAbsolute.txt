@@ -1,0 +1,11 @@
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\bin\Release\net9.0\Localization.deps.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\bin\Release\net9.0\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\bin\Release\net9.0\Localization.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\Localization.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\Localization.AssemblyInfoInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\Localization.AssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\Localization.csproj.CoreCompileInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\refint\Localization.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\Localization.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\Localization\obj\Release\net9.0\ref\Localization.dll

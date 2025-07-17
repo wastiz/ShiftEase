@@ -1,0 +1,45 @@
+.shift-table-container {
+    display: flex;
+    margin-top: 20px;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.fixed-column {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background-color: white;
+}
+
+.scrollable-table {
+    overflow-x: auto;
+    flex-grow: 1;
+}
+
+table {
+    border-collapse: collapse;
+    min-width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--bg-tertiary)
+}
+
+th {
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+.vacation-cell {
+    background-color: lightyellow;
+}

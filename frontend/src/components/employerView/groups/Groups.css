@@ -1,0 +1,50 @@
+
+.group-card {
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+}
+
+.group-card h3 {
+    margin: 0 0 10px;
+}
+
+.group-card p {
+    margin: 0 0 15px;
+    color: #555;
+}
+
+.group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.group-form input,
+.group-form textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.group-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.add-group-btn {
+    width: 200px;
+    height: 40px;
+}
+

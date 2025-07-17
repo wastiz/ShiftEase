@@ -1,0 +1,54 @@
+.organization-form-container {
+    color: var(--text-primary);
+    background-color: var(--bg-base);
+    min-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.organization-form-container form {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.required-fields {
+    border-right: 1px solid var(--border-primary);
+    padding-right: 20px;
+}
+
+.optional-fields {
+    padding-left: 20px;
+}
+
+.section-title {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.day-row {
+    display: flex;
+    align-items: center;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.time-inputs .form-control {
+    width: auto;
+    display: inline-block;
+}
+
+.time-separator {
+    margin: 0 10px;
+    color: var(--text-primary);
+}

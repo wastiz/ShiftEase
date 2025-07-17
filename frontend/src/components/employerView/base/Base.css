@@ -1,0 +1,13 @@
+body {
+    background-color: var(--bg-primary);
+}
+
+main {
+    margin: 0.5%;
+    transition: margin-left 0.3s ease, width 0.3s ease;;
+    height: 98%;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 1rem;
+    /*padding: 1rem;*/
+}

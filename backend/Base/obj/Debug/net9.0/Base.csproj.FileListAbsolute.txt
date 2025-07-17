@@ -1,0 +1,11 @@
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\bin\Debug\net9.0\Base.deps.json
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\bin\Debug\net9.0\Base.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\bin\Debug\net9.0\Base.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\Base.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\Base.AssemblyInfoInputs.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\Base.AssemblyInfo.cs
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\Base.csproj.CoreCompileInputs.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\Base.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\refint\Base.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\Base.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\Base\obj\Debug\net9.0\ref\Base.dll

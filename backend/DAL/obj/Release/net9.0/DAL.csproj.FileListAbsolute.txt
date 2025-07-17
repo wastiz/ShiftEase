@@ -1,0 +1,17 @@
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\bin\Release\net9.0\DAL.deps.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\bin\Release\net9.0\DAL.runtimeconfig.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\bin\Release\net9.0\DAL.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\bin\Release\net9.0\DAL.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\bin\Release\net9.0\Domain.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\bin\Release\net9.0\Domain.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.AssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.csproj.Up2Date
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\refint\DAL.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\DAL.genruntimeconfig.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\DAL\obj\Release\net9.0\ref\DAL.dll

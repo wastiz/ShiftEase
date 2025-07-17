@@ -1,0 +1,366 @@
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\appsettings.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.staticwebassets.runtime.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.staticwebassets.endpoints.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.exe
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.deps.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.runtimeconfig.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.AssemblyInfoInputs.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.AssemblyInfo.cs
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.csproj.CoreCompileInputs.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.RazorAssemblyInfo.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.RazorAssemblyInfo.cs
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\bundle\WebAdminApp.styles.css
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\projectbundle\WebAdminApp.bundle.scp.css
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0sr2mddb8e-b9sayid5wm.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\y7ps5w2xs2-61n19gt1b8.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\8ka4wr6cto-xtxxf3hu2r.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\gb9kyzu4ms-t1cqhe9u97.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\2eemhpa6qg-c2jlpeoesf.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\bt8w6npzr6-sejl45xvog.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7wswjd2buf-aexeepp0ev.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\qlyscs2p1z-xvp3kq03qx.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\mujl1zn9w0-ausgxo2sd3.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fscq7mty63-22vffe00uq.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\6mmecd4q4w-cosvhxvwiu.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7c49j0lspf-qesaa3a1fm.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\sbj0rzzf5n-fvhpjtyr6v.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\93e7bh6yhu-tmc1g35s3z.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\h22oqtqyh1-fsbi9cje9m.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\1iuoc8utyi-rxsg74s51o.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\dlgyw1jv2g-ee0r1s7dh0.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\vk0e46h37l-q9ht133ko3.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\prmt7qa1gf-jd9uben2k1.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7g2csn2qna-gye83jo8yx.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\gxsdxcpfd5-r4e9w2rdcm.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\finwebrb3e-wl58j5mj3v.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\klun06s5xb-c2oey78nd0.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\1dl2vzw0nu-d4r6k3f320.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7s1rccne1s-j5mq2jizvt.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jnuogh4l5c-keugtjm085.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\na5bpz27s7-nvvlpmu67g.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\upf714rkw8-zub09dkrxp.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\n63r7uf3hk-pj5nd1wqec.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\nz4orlw54o-43atpzeawx.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\33cxbm6gn5-v0zj4ognzu.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\eza4us9bco-ynyaa8k90p.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\o5jiynr65v-hrwsygsryq.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\i86wgfbu43-c63t5i9ira.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0t84vwq0dr-ft3s53vfgj.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\rk156kp9c1-4094rpi4f9.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jbqc9g2f95-6pdc2jztkx.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\q0cu78czsa-hd3gran6i8.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\080ybmgcgm-iovd86k7lj.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\t9f0lvo0q6-ltid2c489k.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ismlpvdnhw-kbrnm935zg.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\nyimgf4avd-8vyfqsqgz1.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\u4xu3ejsnj-y7v9cxd14o.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\kolfql4kei-u9q1upor1n.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fj2z290gyi-h1s4sie4z3.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\3gkx0z9g0n-4d85u1mtcx.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fh2d82v0d4-0j3bgjxly4.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\idqjvz08ss-03hjc8e09r.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jbpir8smum-48y08845bh.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\vpzi55o79w-356vix0kms.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ds3390zjj5-83jwlth58m.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\o6sjnxha9i-mrlpezrjn3.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\crh8jc6rql-worgj0nhwm.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0fe6bph2rb-gk0pw8i4co.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\avmthx8dly-x0q3zqp4vz.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\8d4t15czhw-d6nrnj6jjx.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\678nxczk76-m9qm4tazc0.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\maugs0joex-ttgo8qnofa.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\qdheh843sw-jjsuc0puko.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\wqllr4qbb3-9vr69e8ynj.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ydv2jg07bl-87fc7y1x7t.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\knn9brjudy-mlv21k5csn.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\tma4u3kop8-tu53yohkzo.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\wdror7hfq7-tu53yohkzo.gz
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.WebAdminApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.WebAdminApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.build.WebAdminApp.props
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebAdminApp.props
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebAdminApp.props
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\refint\WebAdminApp.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.genruntimeconfig.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\ref\WebAdminApp.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Npgsql.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\DAL.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Domain.dll
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\DAL.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Domain.pdb
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.csproj.AssemblyReference.cache
+C:\Users\valno\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdmin.92D424F9.Up2Date
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\appsettings.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.staticwebassets.runtime.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.staticwebassets.endpoints.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.exe
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.deps.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.runtimeconfig.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.pdb
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Npgsql.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\DAL.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Domain.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\DAL.pdb
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Domain.pdb
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.csproj.AssemblyReference.cache
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.AssemblyInfoInputs.cache
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.AssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.csproj.CoreCompileInputs.cache
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.RazorAssemblyInfo.cache
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.RazorAssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\bundle\WebAdminApp.styles.css
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\projectbundle\WebAdminApp.bundle.scp.css
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0sr2mddb8e-b9sayid5wm.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\y7ps5w2xs2-61n19gt1b8.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\8ka4wr6cto-xtxxf3hu2r.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\gb9kyzu4ms-t1cqhe9u97.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\2eemhpa6qg-c2jlpeoesf.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\bt8w6npzr6-sejl45xvog.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7wswjd2buf-aexeepp0ev.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\qlyscs2p1z-xvp3kq03qx.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\mujl1zn9w0-ausgxo2sd3.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fscq7mty63-22vffe00uq.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\6mmecd4q4w-cosvhxvwiu.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7c49j0lspf-qesaa3a1fm.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\sbj0rzzf5n-fvhpjtyr6v.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\93e7bh6yhu-tmc1g35s3z.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\h22oqtqyh1-fsbi9cje9m.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\1iuoc8utyi-rxsg74s51o.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\dlgyw1jv2g-ee0r1s7dh0.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\vk0e46h37l-q9ht133ko3.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\prmt7qa1gf-jd9uben2k1.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7g2csn2qna-gye83jo8yx.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\gxsdxcpfd5-r4e9w2rdcm.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\finwebrb3e-wl58j5mj3v.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\klun06s5xb-c2oey78nd0.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\1dl2vzw0nu-d4r6k3f320.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7s1rccne1s-j5mq2jizvt.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jnuogh4l5c-keugtjm085.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\na5bpz27s7-nvvlpmu67g.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\upf714rkw8-zub09dkrxp.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\n63r7uf3hk-pj5nd1wqec.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\nz4orlw54o-43atpzeawx.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\33cxbm6gn5-v0zj4ognzu.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\eza4us9bco-ynyaa8k90p.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\o5jiynr65v-hrwsygsryq.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\i86wgfbu43-c63t5i9ira.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0t84vwq0dr-ft3s53vfgj.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\rk156kp9c1-4094rpi4f9.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jbqc9g2f95-6pdc2jztkx.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\q0cu78czsa-hd3gran6i8.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\080ybmgcgm-iovd86k7lj.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\t9f0lvo0q6-ltid2c489k.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ismlpvdnhw-kbrnm935zg.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\nyimgf4avd-8vyfqsqgz1.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\u4xu3ejsnj-y7v9cxd14o.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\kolfql4kei-u9q1upor1n.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fj2z290gyi-h1s4sie4z3.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\3gkx0z9g0n-4d85u1mtcx.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fh2d82v0d4-0j3bgjxly4.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\idqjvz08ss-03hjc8e09r.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jbpir8smum-48y08845bh.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\vpzi55o79w-356vix0kms.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ds3390zjj5-83jwlth58m.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\o6sjnxha9i-mrlpezrjn3.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\crh8jc6rql-worgj0nhwm.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0fe6bph2rb-gk0pw8i4co.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\avmthx8dly-x0q3zqp4vz.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\8d4t15czhw-d6nrnj6jjx.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\678nxczk76-m9qm4tazc0.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\maugs0joex-ttgo8qnofa.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\qdheh843sw-jjsuc0puko.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\wqllr4qbb3-9vr69e8ynj.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ydv2jg07bl-87fc7y1x7t.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\knn9brjudy-mlv21k5csn.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\tma4u3kop8-tu53yohkzo.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\wdror7hfq7-tu53yohkzo.gz
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.WebAdminApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.WebAdminApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.build.WebAdminApp.props
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebAdminApp.props
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebAdminApp.props
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdmin.92D424F9.Up2Date
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\refint\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.pdb
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.genruntimeconfig.cache
+C:\Users\Valer4ik\Desktop\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\ref\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\appsettings.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.staticwebassets.runtime.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.staticwebassets.endpoints.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.exe
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.deps.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.runtimeconfig.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\WebAdminApp.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Npgsql.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\DAL.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Domain.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\DAL.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\bin\Debug\net9.0\Domain.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.csproj.AssemblyReference.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.AssemblyInfoInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.AssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.csproj.CoreCompileInputs.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.RazorAssemblyInfo.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.RazorAssemblyInfo.cs
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\bundle\WebAdminApp.styles.css
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\scopedcss\projectbundle\WebAdminApp.bundle.scp.css
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0sr2mddb8e-b9sayid5wm.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\y7ps5w2xs2-61n19gt1b8.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\8ka4wr6cto-xtxxf3hu2r.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\gb9kyzu4ms-t1cqhe9u97.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\2eemhpa6qg-c2jlpeoesf.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\bt8w6npzr6-sejl45xvog.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7wswjd2buf-aexeepp0ev.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\qlyscs2p1z-xvp3kq03qx.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\mujl1zn9w0-ausgxo2sd3.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fscq7mty63-22vffe00uq.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\6mmecd4q4w-cosvhxvwiu.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7c49j0lspf-qesaa3a1fm.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\sbj0rzzf5n-fvhpjtyr6v.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\93e7bh6yhu-tmc1g35s3z.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\h22oqtqyh1-fsbi9cje9m.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\1iuoc8utyi-rxsg74s51o.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\dlgyw1jv2g-ee0r1s7dh0.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\vk0e46h37l-q9ht133ko3.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\prmt7qa1gf-jd9uben2k1.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7g2csn2qna-gye83jo8yx.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\gxsdxcpfd5-r4e9w2rdcm.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\finwebrb3e-wl58j5mj3v.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\klun06s5xb-c2oey78nd0.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\1dl2vzw0nu-d4r6k3f320.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\7s1rccne1s-j5mq2jizvt.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jnuogh4l5c-keugtjm085.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\na5bpz27s7-nvvlpmu67g.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\upf714rkw8-zub09dkrxp.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\n63r7uf3hk-pj5nd1wqec.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\nz4orlw54o-43atpzeawx.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\33cxbm6gn5-v0zj4ognzu.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\eza4us9bco-ynyaa8k90p.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\o5jiynr65v-hrwsygsryq.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\i86wgfbu43-c63t5i9ira.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0t84vwq0dr-ft3s53vfgj.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\rk156kp9c1-4094rpi4f9.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jbqc9g2f95-6pdc2jztkx.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\q0cu78czsa-hd3gran6i8.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\080ybmgcgm-iovd86k7lj.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\t9f0lvo0q6-ltid2c489k.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ismlpvdnhw-kbrnm935zg.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\nyimgf4avd-8vyfqsqgz1.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\u4xu3ejsnj-y7v9cxd14o.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\kolfql4kei-u9q1upor1n.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fj2z290gyi-h1s4sie4z3.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\3gkx0z9g0n-4d85u1mtcx.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\fh2d82v0d4-0j3bgjxly4.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\idqjvz08ss-03hjc8e09r.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\jbpir8smum-48y08845bh.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\vpzi55o79w-356vix0kms.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ds3390zjj5-83jwlth58m.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\o6sjnxha9i-mrlpezrjn3.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\crh8jc6rql-worgj0nhwm.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\0fe6bph2rb-gk0pw8i4co.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\avmthx8dly-x0q3zqp4vz.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\8d4t15czhw-d6nrnj6jjx.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\678nxczk76-m9qm4tazc0.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\maugs0joex-ttgo8qnofa.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\qdheh843sw-jjsuc0puko.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\wqllr4qbb3-9vr69e8ynj.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\ydv2jg07bl-87fc7y1x7t.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\knn9brjudy-mlv21k5csn.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\tma4u3kop8-tu53yohkzo.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\compressed\wdror7hfq7-tu53yohkzo.gz
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.WebAdminApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.WebAdminApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.build.WebAdminApp.props
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebAdminApp.props
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebAdminApp.props
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdmin.92D424F9.Up2Date
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\refint\WebAdminApp.dll
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.pdb
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\WebAdminApp.genruntimeconfig.cache
+C:\Users\Valer4ik\Desktop\Shift Ease\icd0024-24-25-s\WebAdminApp\obj\Debug\net9.0\ref\WebAdminApp.dll

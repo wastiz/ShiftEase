@@ -1,0 +1,44 @@
+.aside-modal {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 20%;
+    height: 100%;
+    background-color: var(--bg-base);
+    box-shadow: -1px 0 20px rgba(0, 20, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    border-radius: 1rem;
+}
+
+.aside-modal.open {
+    right: 0;
+}
+
+.aside-modal-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-primary);
+    padding: 15px;
+}
+
+.aside-modal-header h4 {
+    margin-bottom: 0;
+}
+
+.aside-modal-header button {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside-modal-content {
+    padding: 20px;
+    max-height: 92%;
+    overflow-y: auto;
+}

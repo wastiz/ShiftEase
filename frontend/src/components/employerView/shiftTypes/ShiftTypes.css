@@ -1,0 +1,32 @@
+.shift-type-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
+
+.shift-type-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 1.25rem;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.shift-type-card:hover {
+    transform: scale(1.02);
+}
+
+.shift-type-name {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+
+.shift-type-time {
+    margin-bottom: 0.5rem;
+    color: #495057;
+    font-size: 0.95rem;
+}

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftEaseAPI", "ShiftEaseAPI\ShiftEaseAPI.csproj", "{4B9213EE-F93F-40B6-AD74-929B5016C33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{3ABF5DC8-BC4E-4101-A8C8-079582231B1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{2C82472B-43B8-4F53-8451-2A2564822ECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization", "Localization\Localization.csproj", "{03954E61-E5EA-47AB-A19F-2E498519A8E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAdminApp", "WebAdminApp\WebAdminApp.csproj", "{353D5E22-D05C-4EFD-86A6-FDEA522E2A1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{852AFAEC-BF15-48E7-8CC0-5F4D15AE0C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{52DE903B-88ED-49CE-944B-CF39A0C42911}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B9213EE-F93F-40B6-AD74-929B5016C33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B9213EE-F93F-40B6-AD74-929B5016C33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B9213EE-F93F-40B6-AD74-929B5016C33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B9213EE-F93F-40B6-AD74-929B5016C33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ABF5DC8-BC4E-4101-A8C8-079582231B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ABF5DC8-BC4E-4101-A8C8-079582231B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ABF5DC8-BC4E-4101-A8C8-079582231B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ABF5DC8-BC4E-4101-A8C8-079582231B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C82472B-43B8-4F53-8451-2A2564822ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C82472B-43B8-4F53-8451-2A2564822ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C82472B-43B8-4F53-8451-2A2564822ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C82472B-43B8-4F53-8451-2A2564822ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03954E61-E5EA-47AB-A19F-2E498519A8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03954E61-E5EA-47AB-A19F-2E498519A8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03954E61-E5EA-47AB-A19F-2E498519A8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03954E61-E5EA-47AB-A19F-2E498519A8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353D5E22-D05C-4EFD-86A6-FDEA522E2A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353D5E22-D05C-4EFD-86A6-FDEA522E2A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353D5E22-D05C-4EFD-86A6-FDEA522E2A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353D5E22-D05C-4EFD-86A6-FDEA522E2A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852AFAEC-BF15-48E7-8CC0-5F4D15AE0C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852AFAEC-BF15-48E7-8CC0-5F4D15AE0C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852AFAEC-BF15-48E7-8CC0-5F4D15AE0C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852AFAEC-BF15-48E7-8CC0-5F4D15AE0C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52DE903B-88ED-49CE-944B-CF39A0C42911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52DE903B-88ED-49CE-944B-CF39A0C42911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52DE903B-88ED-49CE-944B-CF39A0C42911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52DE903B-88ED-49CE-944B-CF39A0C42911}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

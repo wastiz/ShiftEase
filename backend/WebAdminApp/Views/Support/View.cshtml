@@ -1,0 +1,26 @@
+﻿@model Domain.SupportMessage
+@using DTOs.SupportDtos
+
+<h2>@Model.Subject</h2>
+<p><strong>From:</strong> @Model.SenderEmail</p>
+<p><strong>Sent:</strong> @Model.SentAt.ToString("g")</p>
+
+<div class="card p-3 mb-3">
+    <p>@Model.Message</p>
+</div>
+
+@if (!Model.IsResolved)
+{
+    <form asp-action="Reply" method="post">
+        <input type="hidden" name="MessageId" value="@Model.Id" />
+        <div class="form-group">
+            <label for="ReplyMessage">Reply:</label>
+            <textarea name="ReplyMessage" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success mt-2">Send Reply</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-success">This message has already been resolved.</div>
+}

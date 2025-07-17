@@ -1,0 +1,51 @@
+# === Root ===
+node_modules/
+.env
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# === Frontend (React) ===
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.cache/
+frontend/coverage/
+
+# === Backend (ASP.NET Core) ===
+backend/bin/
+backend/obj/
+backend/.vs/
+backend/.vscode/
+backend/appsettings.*.json
+backend/*.user
+backend/*.suo
+backend/*.userosscache
+backend/*.sln.docstates
+backend/.idea/
+
+# === Docker ===
+**/docker-compose.override.yml
+**/*.db
+**/pgdata/
+**/.docker/
+
+# === Logs & Debug ===
+*.log
+*.vspscc
+*.vsp
+*.pdb
+
+# === Optional ===
+.vscode/
+.idea/
+*.tgz
+*.tar.gz
+*.zip
+*.7z
+
+# === Git ===
+.git/

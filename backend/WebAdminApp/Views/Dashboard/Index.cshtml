@@ -1,0 +1,162 @@
+﻿@model DashboardViewModel
+
+<div class="container-fluid">
+    <h1 class="mt-4">Admin Dashboard</h1>
+    
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-10">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Registration Overview</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="registrationsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .dashboard-card {
+                height: 120px;
+            }
+
+            .dashboard-card .card-body {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .dashboard-card .h5 {
+                font-size: 1.5rem;
+            }
+        </style>
+
+        <div class="col-xl-4 col-lg-4 col-md-2 mb-4">
+            <div class="card border-left-primary shadow py-2 mb-3 dashboard-card">
+                <div class="card-body">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Employers</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.TotalEmployers</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-tie fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-left-primary shadow py-2 mb-3 dashboard-card">
+                <div class="card-body">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Organizations</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.TotalOrganizations</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-building fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-left-primary shadow py-2 dashboard-card">
+                <div class="card-body">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Employees</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.TotalEmployees</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        Recent Support Messages 
+                        @if(Model.UnreadMessages > 0) {
+                            <span class="badge badge-danger">@Model.UnreadMessages new</span>
+                        }
+                    </h6>
+                </div>
+                <div class="card-body">
+                    @foreach(var msg in Model.RecentMessages) {
+                        <div class="mb-3 @(msg.IsResolved ? "border-left-danger" : "border-left-info") pl-3">
+                            <div class="text-xs font-weight-bold @(msg.IsResolved ? "text-danger" : "text-info") text-uppercase">
+                                @msg.SenderEmail - @msg.SentAt.ToString("g")
+                            </div>
+                            <div>@msg.Subject</div>
+                        </div>
+                    }
+                    <a href="/support" class="btn btn-primary btn-sm mt-2">View All</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Organizations with Issues</h6>
+                </div>
+                <div class="card-body">
+                    @if(Model.OrganizationIssues.Any()) {
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Organization</th>
+                                        <th>Issue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var issue in Model.OrganizationIssues) {
+                                        <tr>
+                                            <td>@issue.OrganizationName</td>
+                                            <td class="@(issue.IssueType == "Critical" ? "text-danger" : "text-warning")">
+                                                @issue.Description
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    } else {
+                        <div class="text-center text-success">No issues found</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('registrationsChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Employers',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }, {
+                    label: 'Organizations',
+                    data: [8, 15, 5, 7, 4, 6],
+                    borderColor: 'rgb(54, 162, 235)',
+                    tension: 0.1
+                }]
+            }
+        });
+    </script>
+}

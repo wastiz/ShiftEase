@@ -1,0 +1,216 @@
+.schedules-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.schedule-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 1000px;
+}
+
+.schedule-page {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-primary);
+}
+
+.schedule-sidebar {
+    width: 250px;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+}
+
+.sidebar-section {
+    border: 1px solid var(--border-primary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-tertiary);
+}
+
+.sidebar-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: 0.5rem;
+}
+
+.schedule-main {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+    border-radius: 0.25rem;
+}
+
+.schedule-controls {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: 0.5rem;
+}
+
+.calendar-wrapper {
+    flex: 1;
+    overflow: auto;
+    background-color: var(--bg-secondary);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(31, 1fr);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    min-width: max-content;
+}
+
+.calendar-column {
+    display: grid;
+    grid-template-rows: 60px repeat(24, 60px);
+    border-right: 1px solid var(--border-primary);
+}
+
+.calendar-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-primary);
+    font-size: 0.85rem;
+    height: 60px;
+    min-width: 100px;
+}
+
+.calendar-day-cell {
+    height: calc(60px * 25);
+    font-size: 0.85rem;
+}
+
+.drag-over {
+    background-color: var(--primary-dark);
+}
+
+.calendar-holiday-cell {
+    background-color: var(--bg-warning);
+}
+
+.draggable-item {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    background-color: var(--bg-secondary);
+    cursor: grab;
+    text-align: center;
+    font-weight: 500;
+}
+
+.btn-unconfirm {
+    font-size: 12px;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-warning);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.shift-box {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.shift-box .shift-header {
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 4px;
+}
+
+.shift-box-modern .shift-type {
+    font-weight: 500;
+}
+
+.shift-avatars {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.avatar-circle {
+    width: 28px;
+    height: 28px;
+    background-color: var(--bg-tertiary);
+    border: 2px solid #6e44ff;
+    color: var(--text-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: -8px;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.avatar-circle:first-child {
+    margin-left: 0;
+}
+
+.hover-removable .avatar-remove {
+    display: none;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.hover-removable .avatar-initial {
+    display: inline;
+    transition: opacity 0.2s;
+}
+
+.hover-removable:hover .avatar-initial {
+    display: none;
+}
+
+.hover-removable:hover .avatar-remove {
+    display: inline;
+    color: var(--text-error);
+}
+
+.avatar-circle.extra {
+    background-color: #6e44ff;
+    border-color: #6e44ff;
+}
+
+.delete-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-error);
+    cursor: pointer;
+    margin-left: auto;
+}

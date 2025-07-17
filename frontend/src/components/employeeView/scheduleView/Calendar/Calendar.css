@@ -1,0 +1,44 @@
+.calendar-wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    font-family: sans-serif;
+}
+
+.calendar-fixed {
+    flex-shrink: 0;
+    background: #f9f9f9;
+    z-index: 1;
+}
+
+.calendar-fixed table,
+.calendar-scrollable table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.calendar-scrollable {
+    overflow-x: auto;
+    overflow-y: auto;
+    flex: 1;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    min-width: 120px;
+    height: 50px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+thead th {
+    background-color: #f1f1f1;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}

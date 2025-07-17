@@ -1,0 +1,26 @@
+﻿@model List<Domain.SupportMessage>
+
+<h2>Support Messages</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var msg in Model)
+    {
+        <tr class="@(msg.IsRead ? "" : "table-warning")">
+            <td>@msg.SenderEmail</td>
+            <td>@msg.Subject</td>
+            <td>@msg.SentAt.ToString("g")</td>
+            <td>@(msg.IsResolved ? "Resolved" : "Open")</td>
+            <td><a href="@Url.Action("View", "Support", new { id = msg.Id })" class="btn btn-sm btn-primary">View</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
