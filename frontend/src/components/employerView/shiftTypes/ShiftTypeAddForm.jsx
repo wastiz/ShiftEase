@@ -10,7 +10,6 @@ import Button from "react-bootstrap/Button";
 import ColorInput from "../../assets/Inputs/ColorInput.jsx";
 
 const ShiftTypeForm = ({ onClose, shiftTypeData, onCreate, onUpdate, onDelete }) => {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const token = Cookies.get("auth_token");
 
     const { register, handleSubmit, setValue, reset, watch, formState: { errors } } = useForm();
@@ -43,11 +42,11 @@ const ShiftTypeForm = ({ onClose, shiftTypeData, onCreate, onUpdate, onDelete })
 
             let response;
             if (shiftTypeData) {
-                response = await api.put(`${api_route}/ShiftType/${shiftTypeData.id}`, payload, config);
+                response = await api.put(`/ShiftType/${shiftTypeData.id}`, payload, config);
                 toast.success("Shift type updated successfully!", {className: "toast-success"});
                 onUpdate(response.data);
             } else {
-                response = await api.post(`${api_route}/ShiftType/organization`, payload, config);
+                response = await api.post(`/ShiftType/organization`, payload, config);
                 toast.success("Shift type created successfully!", {className: "toast-success"});
                 onCreate(response.data);
             }
@@ -63,7 +62,7 @@ const ShiftTypeForm = ({ onClose, shiftTypeData, onCreate, onUpdate, onDelete })
         if (!shiftTypeData?.id) return;
 
         try {
-            await api.delete(`${api_route}/ShiftType/${shiftTypeData.id}`, {
+            await api.delete(`/ShiftType/${shiftTypeData.id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

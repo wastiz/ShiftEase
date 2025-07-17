@@ -8,7 +8,6 @@ import InfoCard from "../../assets/InfoCard.jsx";
 import LoadingSpinner from "../../assets/LoadingSpinner.jsx";
 
 function ShiftTypes() {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const token = Cookies.get('auth_token');
     const [shifts, setShifts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -19,7 +18,7 @@ function ShiftTypes() {
     const fetchShifts = async () => {
         try {
             setLoading(true);
-            const response = await api.get(`${api_route}/ShiftType/organization`, {
+            const response = await api.get(`/ShiftType/organization`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -106,9 +105,9 @@ function ShiftTypes() {
             )}
 
             <AsideModal modalOn={modalOn} onClose={handleClose} name='Add Shift Type'>
-                <ShiftAddForm 
-                    modalOn={modalOn} 
-                    onClose={handleClose} 
+                <ShiftAddForm
+                    modalOn={modalOn}
+                    onClose={handleClose}
                     shiftTypeData={selectedShift}
                     onCreate={handleCreate}
                     onUpdate={handleUpdate}
