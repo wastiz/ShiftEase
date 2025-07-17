@@ -10,7 +10,6 @@ import Button from "react-bootstrap/Button";
 import InfoCard from "../../assets/InfoCard.jsx";
 
 const Employees = () => {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const orgId = localStorage.getItem('orgId');
     const [noData, setNoData] = useState(false);
     const navigate = useNavigate();
@@ -29,8 +28,8 @@ const Employees = () => {
         const fetchData = async () => {
             try {
                 const [employeeResponse, groupResponse] = await Promise.allSettled([
-                    api.get(`${api_route}/employee/by-organization-id/${orgId}`),
-                    api.get(`${api_route}/group/by-organization-id`)
+                    api.get(`/employee/by-organization-id/${orgId}`),
+                    api.get(`/group/by-organization-id`)
                 ]);
 
                 if (groupResponse.status === "fulfilled") {

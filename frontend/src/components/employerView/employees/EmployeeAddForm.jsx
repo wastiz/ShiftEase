@@ -12,7 +12,6 @@ import SelectInput from "../../assets/Inputs/SelectInput.jsx";
 import {Card} from "react-bootstrap";
 
 const EmployeeAddForm = ({ onClose, groups, employeeData, handleEmployeeUpdate, handleEmployeeAdd }) => {
-    const api_route = import.meta.env.VITE_SERVER_API;
     const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm();
 
     useEffect(() => {
@@ -54,11 +53,11 @@ const EmployeeAddForm = ({ onClose, groups, employeeData, handleEmployeeUpdate, 
             let response;
 
             if (employeeData) {
-                response = await api.put(`${api_route}/employee/${employeeData.id}`, employee);
+                response = await api.put(`/employee/${employeeData.id}`, employee);
                 toast.success(response.data.message);
                 handleEmployeeUpdate(employee);
             } else {
-                response = await api.post(`${api_route}/employee/`, employee);
+                response = await api.post(`/employee/`, employee);
                 toast.success(response.data.message, {className: "toast-success"});
                 handleEmployeeAdd(employee);
             }
