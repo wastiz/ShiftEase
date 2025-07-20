@@ -1,65 +1,35 @@
 version: '3.8'
 
 services:
-  db:
-    image: postgres:16
-    container_name: shiftease-db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: shift_ease
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d shift_ease"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
-    
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
+    container_name: shiftease-backend
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:3007
-      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=shift_ease;Username=postgres;Password=admin
-    ports:
-      - "3007:3007"
+      - ConnectionStrings__DefaultConnection=Host=shared-postgres;Port=5432;Database=shift_ease;Username=postgres;Password=PGtitan4321
     expose:
       - "3007"
-    depends_on:
-      db:
-        condition: service_healthy
-        
+    networks:
+      - proxy_net
+      - db_net
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: frontend
-    ports:
-      - "3006:80"
+    container_name: shiftease-frontend
     expose:
-      - "3006"
+      - "80"
+    networks:
+      - proxy_net
     depends_on:
       - backend
 
-  proxy:
-    image: nginx:alpine
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - frontend
-      - backend
-    
-
-volumes:
-  postgres_data:
+networks:
+  proxy_net:
+    external: true
+  db_net:
+    external: true
