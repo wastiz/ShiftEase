@@ -1,0 +1,21 @@
+@keyframes noise {
+    0% {
+        transform: translate(5%, 5%);
+    }
+    25% {
+        transform: translate(-8%, 12%);
+    }
+    50% {
+        transform: translate(0.3%, 2%);
+    }
+    75% {
+        transform: translate(-0.8%, -4%);
+    }
+    100% {
+        transform: translate(1%, 5%);
+    }
+}
+
+.animate-noise {
+    animation: noise 0.5s infinite steps(2);
+}

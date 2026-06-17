@@ -1,0 +1,45 @@
+# === Environment & logs ===
+.env
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+appsettings.json
+
+# === ASP.NET Core ===
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / IDE
+.vs/
+.vscode/
+.idea/
+.claude
+
+# ASP.NET Core settings
+appsettings.*.json
+
+# === Docker ===
+docker-compose.override.yml
+*.db
+pgdata/
+.docker/
+
+# === Debug / temporary files ===
+*.vspscc
+*.vsp
+*.pdb
+
+# === Archives / packages ===
+*.tgz
+*.tar.gz
+*.zip
+*.7z
+
+# === Git itself ===
+.git/

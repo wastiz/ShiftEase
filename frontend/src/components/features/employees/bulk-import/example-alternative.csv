@@ -1,0 +1,7 @@
+name,e-mail,telephone,role,team,wage,importance
+John Doe,john.doe@example.com,+1234567890,Manager,1|2,25,3
+Jane Smith,jane.smith@example.com,+0987654321,Senior Cashier,1,22,high
+Bob Johnson,bob.j@example.com,+1112223333,Cashier,1,18,2
+Alice Williams,alice.w@example.com,+4445556666,Assistant Manager,1;2,23,medium
+Charlie Brown,charlie.b@example.com,+7778889999,Stock Clerk,2,15,1
+Diana Martinez,diana.m@example.com,+1231231234,Barista,3,17,m

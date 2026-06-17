@@ -1,0 +1,6 @@
+@ShiftEaseAPI_HostAddress = http://localhost:5258
+
+GET {{ShiftEaseAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
