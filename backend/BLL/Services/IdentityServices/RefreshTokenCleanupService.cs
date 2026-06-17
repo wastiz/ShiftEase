@@ -7,17 +7,22 @@ public class RefreshTokenCleanupService : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<RefreshTokenCleanupService> _logger;
+    private readonly IHostApplicationLifetime _lifetime;
 
     public RefreshTokenCleanupService(
         IServiceScopeFactory scopeFactory,
-        ILogger<RefreshTokenCleanupService> logger)
+        ILogger<RefreshTokenCleanupService> logger,
+        IHostApplicationLifetime lifetime)
     {
         _scopeFactory = scopeFactory;
         _logger = logger;
+        _lifetime = lifetime;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        await Task.Delay(Timeout.Infinite, _lifetime.ApplicationStarted);
+        
         while (!stoppingToken.IsCancellationRequested)
         {
             await CleanupAsync(stoppingToken);
