@@ -179,7 +179,7 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 //For automat migrations
-app.ApplyMigrationsAsync();
+await app.ApplyMigrationsAsync();
 
 app.UseRouting();
 app.UseRateLimiter();
