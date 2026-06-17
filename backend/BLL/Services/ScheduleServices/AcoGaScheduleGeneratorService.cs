@@ -1,41 +1,29 @@
 using BLL.Contracts;
 using BLL.DTO.ScheduleDtos;
-using BLL.Helpers;
 using BLL.Rules;
 using DAL;
 using Domain.Enums;
 using DTOs.DepartmentDtos;
 using DTOs.EmployeeDtos;
-using DTOs.OrganizationDtos;
-using Microsoft.EntityFrameworkCore;
+using static BLL.Services.ScheduleGeneratorShared;
 
 namespace BLL.Services;
 
 /// <summary>
 /// Generates employee schedules using a hybrid ACO+GA algorithm.
 ///
-/// The algorithm runs in two phases:
+/// Phase 1 — Ant Colony Optimization (ACO):
+///   Ants construct feasible schedules probabilistically using pheromone trails
+///   and a domain-aware heuristic. After every iteration pheromone is updated
+///   with an elitist strategy so good employee–shift assignments accumulate
+///   stronger trails. This phase learns the "shape" of good solutions.
 ///
-///   Phase 1 — Ant Colony Optimization (ACO):
-///     Ants construct feasible schedules probabilistically using pheromone trails
-///     and a domain-aware heuristic. After every iteration pheromone is updated
-///     with an elitist strategy so good employee–shift assignments accumulate
-///     stronger trails. This phase learns the "shape" of good solutions.
-///
-///   Phase 2 — Genetic Algorithm (GA) seeded from pheromone:
-///     Instead of a purely random initial population, each individual is built
-///     using the pheromone matrix from Phase 1 as a biased guide (same roulette-
-///     wheel selection as ACO). The ACO global-best solution is also injected
-///     directly into the seed population. GA then refines the solutions through
-///     tournament selection, uniform crossover, and constraint-aware mutation
-///     for the configured number of generations.
-///
-/// Constraint handling (identical to standalone ACO and GA implementations):
-///   • Vacations, sick leaves, and personal days → hard exclusion.
-///   • Minimum daily rest (11 h), weekly hours ceiling, monthly norm (120 % cap)
-///     and schedule patterns (2on2off etc.) → hard constraints in heuristic.
-///   • Primary-department employees preferred over substitutes (soft weighting).
-///   • Workload fairness penalised in fitness (standard deviation of hours).
+/// Phase 2 — Genetic Algorithm (GA) seeded from pheromone:
+///   Instead of a purely random initial population, each individual is built
+///   using the pheromone matrix from Phase 1 as a biased guide (same roulette-
+///   wheel selection as ACO). The ACO global-best solution is also injected
+///   directly into the seed population. GA then refines the solutions through
+///   tournament selection, uniform crossover, and constraint-aware mutation.
 /// </summary>
 public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
 {
@@ -45,14 +33,16 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
     private readonly IDepartmentService   _departmentService;
     private readonly ILaborRulesProvider  _laborRules;
     private readonly AppDbContext         _context;
+    private readonly IAnalyticsService    _analytics;
+
     // ── ACO hyperparameters ───────────────────────────────────────────────────
-    private const double Alpha   = 1.0;   // pheromone exponent
-    private const double Beta    = 2.5;   // heuristic exponent
-    private const double Rho     = 0.15;  // evaporation rate
-    private const double Q       = 500.0; // base deposit amount
-    private const double TauInit = 1.0;   // initial pheromone
-    private const double TauMin  = 0.01;  // pheromone floor
-    private const double TauMax  = 20.0;  // pheromone ceiling
+    private const double Alpha   = 1.0;
+    private const double Beta    = 2.5;
+    private const double Rho     = 0.15;
+    private const double Q       = 500.0;
+    private const double TauInit = 1.0;
+    private const double TauMin  = 0.01;
+    private const double TauMax  = 20.0;
 
     // ── GA hyperparameters ────────────────────────────────────────────────────
     private const double CrossoverRate  = 0.80;
@@ -60,36 +50,46 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
     private const int    TournamentSize = 3;
     private const int    EliteCount     = 2;
 
-    // ── Heuristic multipliers ─────────────────────────────────────────────────
-    private const double PrimaryEta    = 10.0;
-    private const double SubstituteEta = 3.5;
-
     public AcoGaScheduleGeneratorService(
         IOrganizationService organizationService,
         IEmployeeService     employeeService,
         IDepartmentService   departmentService,
         ILaborRulesProvider  laborRules,
-        AppDbContext         context)
+        AppDbContext         context,
+        IAnalyticsService    analytics)
     {
         _organizationService = organizationService;
         _employeeService     = employeeService;
         _departmentService   = departmentService;
         _laborRules          = laborRules;
         _context             = context;
+        _analytics           = analytics;
     }
 
     // ── Public entry point ────────────────────────────────────────────────────
 
     public async Task<BllScheduleGenerateResult> GenerateAcoGaScheduleAsync(
-        int orgId,
-        BllAcoGaScheduleGenerateRequest request)
+        int orgId, BllAcoGaScheduleGenerateRequest request)
     {
-        return await GenerateAcoGaCoreAsync(orgId, request);
+        _analytics.Track(AnalyticsEventTypes.ScheduleGenerationRequested, organizationId: orgId,
+            metadata: new() { ["algorithm"] = "aco_ga" });
+
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+        var result = await GenerateAcoGaCoreAsync(orgId, request);
+        sw.Stop();
+
+        if (result.Status == GenerateStatus.Error)
+            _analytics.Track(AnalyticsEventTypes.ScheduleGenerationFailed, organizationId: orgId,
+                metadata: new() { ["algorithm"] = "aco_ga", ["duration_ms"] = (object?)sw.ElapsedMilliseconds, ["error"] = result.Error?.ToString() });
+        else
+            _analytics.Track(AnalyticsEventTypes.ScheduleGenerationSuccess, organizationId: orgId,
+                metadata: new() { ["algorithm"] = "aco_ga", ["duration_ms"] = (object?)sw.ElapsedMilliseconds, ["shift_count"] = result.Shifts.Count, ["employee_count"] = result.Shifts.SelectMany(s => s.Employees).Select(e => e.Id).Distinct().Count() });
+
+        return result;
     }
 
     private async Task<BllScheduleGenerateResult> GenerateAcoGaCoreAsync(
-        int orgId,
-        BllAcoGaScheduleGenerateRequest request)
+        int orgId, BllAcoGaScheduleGenerateRequest request)
     {
         // 1. Validate inputs
         if (request.StartDate > request.EndDate)
@@ -108,51 +108,33 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
         if (!depts.Any())
             return BllScheduleGenerateResult.Fail(GenerateErrorCode.NoShiftTypes);
 
-        // 3. Load employees and split into primary / substitute pools per department
+        // 3. Load employees and build department pools
         var employees = await _employeeService.GetFullDataByOrganizationIdAsync(orgId);
         if (!employees.Any())
             return BllScheduleGenerateResult.Fail(GenerateErrorCode.NoEmployeesInDepartment);
 
-        var shiftTypeToDeptId = depts
-            .SelectMany(d => d.ShiftTypes.Select(st => (st.Id, DeptId: d.Id)))
-            .ToDictionary(x => x.Id, x => x.DeptId);
+        var (shiftTypeToDeptId, shiftTypeToPattern) = BuildShiftTypeMaps(depts);
+        var (primaryByDept, substituteByDept)        = BuildEmployeePools(depts, employees);
 
-        var shiftTypeToPattern = depts
-            .SelectMany(d => d.ShiftTypes.Select(st => (st.Id, d.DefaultSchedulePattern)))
-            .ToDictionary(x => x.Id, x => x.DefaultSchedulePattern);
-
-        var primaryByDept = depts.ToDictionary(
-            d => d.Id,
-            d => employees.Where(e => e.PrimaryDepartmentId == d.Id).ToList());
-
-        var substituteByDept = depts.ToDictionary(
-            d => d.Id,
-            d => employees
-                .Where(e => e.DepartmentIds != null
-                         && e.DepartmentIds.Contains(d.Id)
-                         && e.PrimaryDepartmentId != d.Id)
-                .ToList());
-
-        // 4. Load time-offs (hard constraint — vacations, sick leaves, personal days)
+        // 4. Load time-offs and build shift skeleton
         var empIds   = employees.Select(e => e.Id).ToList();
-        var timeOffs = await LoadTimeOffsAsync(empIds, request.StartDate, request.EndDate);
+        var timeOffs = await LoadTimeOffsAsync(empIds, request.StartDate, request.EndDate, _context);
 
-        // 5. Build the shift skeleton (dates × shift types)
         var allShifts = BuildEmptyShifts(request.StartDate, request.EndDate, org, depts);
         if (!allShifts.Any())
             return BllScheduleGenerateResult.Fail(GenerateErrorCode.ShiftTypesDontFitSchedule);
 
-        // 6. Fetch labor rules
+        // 5. Fetch labor rules
         var maxLimits   = _laborRules.GetMaxLimitsRules();
         var restPeriods = _laborRules.GetRestPeriodRules();
         var monthlyNorm = _laborRules.GetMonthlyNormHours(
             request.StartDate.Year, request.StartDate.Month);
 
-        // 7. Prepare shared state
-        int numAnts        = request.NumAnts          > 0 ? request.NumAnts          : 20;
-        int numAcoIter     = request.NumAcoIterations  > 0 ? request.NumAcoIterations  : 30;
-        int popSize        = request.PopulationSize    > 0 ? request.PopulationSize    : 50;
-        int numGaGens      = request.NumGaGenerations  > 0 ? request.NumGaGenerations  : 80;
+        // 6. Prepare shared state
+        int numAnts    = request.NumAnts          > 0 ? request.NumAnts          : 20;
+        int numAcoIter = request.NumAcoIterations > 0 ? request.NumAcoIterations : 30;
+        int popSize    = request.PopulationSize   > 0 ? request.PopulationSize   : 50;
+        int numGaGens  = request.NumGaGenerations > 0 ? request.NumGaGenerations : 80;
 
         int empCount   = employees.Count;
         int shiftCount = allShifts.Count;
@@ -161,7 +143,6 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
             .Select((e, i) => (e.Id, i))
             .ToDictionary(x => x.Id, x => x.i);
 
-        // pheromone[empIndex, shiftIndex]
         var pheromone = new double[empCount, shiftCount];
         for (int e = 0; e < empCount; e++)
             for (int s = 0; s < shiftCount; s++)
@@ -192,31 +173,21 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
 
                 double fitness = EvaluateFitness(solution, allShifts, request.TotalHours, request.HardTotalHours);
 
-                if (fitness > iterBestFitness)
-                {
-                    iterBestFitness = fitness;
-                    iterBest        = solution;
-                }
-
+                if (fitness > iterBestFitness) { iterBestFitness = fitness; iterBest = solution; }
                 if (fitness > acoBestFitness)
                 {
                     acoBestFitness = fitness;
-                    acoBest        = solution.Select(s => s.ToList()).ToArray();
+                    acoBest = solution.Select(s => s.ToList()).ToArray();
                 }
             }
 
-            // Evaporate
             for (int e = 0; e < empCount; e++)
                 for (int s = 0; s < shiftCount; s++)
                     pheromone[e, s] = Math.Max(TauMin, pheromone[e, s] * (1.0 - Rho));
 
-            // Elitist deposit: global-best (×1.5) + iteration-best
-            if (acoBest != null)
-                DepositPheromone(pheromone, acoBest, empToIdx, shiftCount, Q * 1.5);
-            if (iterBest != null)
-                DepositPheromone(pheromone, iterBest, empToIdx, shiftCount, Q);
+            if (acoBest  != null) DepositPheromone(pheromone, acoBest,  empToIdx, shiftCount, Q * 1.5);
+            if (iterBest != null) DepositPheromone(pheromone, iterBest, empToIdx, shiftCount, Q);
 
-            // Clamp ceiling
             for (int e = 0; e < empCount; e++)
                 for (int s = 0; s < shiftCount; s++)
                     if (pheromone[e, s] > TauMax) pheromone[e, s] = TauMax;
@@ -227,12 +198,9 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
 
         // ── Phase 2: GA seeded from pheromone ────────────────────────────────
 
-        // Build initial population using pheromone-biased construction.
-        // The ACO global-best solution is injected directly as the first individual
-        // so the GA starts from at least one high-quality seed.
         var population = new List<List<int>[]>(popSize)
         {
-            acoBest.Select(s => s.ToList()).ToArray()   // seed with ACO best
+            acoBest.Select(s => s.ToList()).ToArray()
         };
 
         while (population.Count < popSize)
@@ -247,8 +215,8 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
                 rng));
         }
 
-        List<int>[]? globalBest        = acoBest.Select(s => s.ToList()).ToArray();
-        double       globalBestFitness = acoBestFitness;
+        List<int>[] globalBest        = acoBest.Select(s => s.ToList()).ToArray();
+        double      globalBestFitness = acoBestFitness;
 
         for (int gen = 0; gen < numGaGens; gen++)
         {
@@ -265,7 +233,6 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
 
             var nextGen = new List<List<int>[]>(popSize);
 
-            // Elitism
             for (int e = 0; e < Math.Min(EliteCount, scored.Count); e++)
                 nextGen.Add(scored[e].Individual.Select(s => s.ToList()).ToArray());
 
@@ -300,29 +267,24 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
 
     // ── ACO: solution construction ────────────────────────────────────────────
 
-    /// <summary>
-    /// One ant constructs a complete schedule by visiting each shift and selecting
-    /// employees via roulette-wheel weighted by pheromone × heuristic.
-    /// Used in both the ACO phase and the GA seeding phase.
-    /// </summary>
     private List<int>[] ConstructAcoSolution(
-        List<BllShift>                     shifts,
-        List<BllEmployee>                  employees,
-        Dictionary<int, int>               empToIdx,
-        Dictionary<int, List<BllEmployee>> primaryByDept,
-        Dictionary<int, List<BllEmployee>> substituteByDept,
-        Dictionary<int, int>               shiftTypeToDeptId,
-        Dictionary<int, SchedulePattern>   shiftTypeToPattern,
-        Dictionary<int, List<DateRange>>   timeOffs,
-        double[,]                          pheromone,
-        MaxLimitsRules                     maxLimits,
-        RestPeriodsRules                   restPeriods,
-        int                                monthlyNorm,
-        double?                            totalBudget,
-        bool                               hardTotalHours,
-        Random                             rng)
+        List<BllShift>                           shifts,
+        List<BllEmployee>                        employees,
+        Dictionary<int, int>                     empToIdx,
+        Dictionary<int, List<BllEmployee>>       primaryByDept,
+        Dictionary<int, List<BllEmployee>>       substituteByDept,
+        Dictionary<int, int>                     shiftTypeToDeptId,
+        Dictionary<int, SchedulePattern>         shiftTypeToPattern,
+        Dictionary<int, List<ScheduleDateRange>> timeOffs,
+        double[,]                                pheromone,
+        MaxLimitsRules                           maxLimits,
+        RestPeriodsRules                         restPeriods,
+        int                                      monthlyNorm,
+        double?                                  totalBudget,
+        bool                                     hardTotalHours,
+        Random                                   rng)
     {
-        var workloads  = employees.ToDictionary(e => e.Id, _ => new Workload());
+        var workloads  = employees.ToDictionary(e => e.Id, _ => new ScheduleWorkload());
         var empRates   = employees.ToDictionary(e => e.Id, e => (double)e.EmploymentRate);
         var usedBudget = 0.0;
 
@@ -340,20 +302,10 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
             var primary    = primaryByDept.GetValueOrDefault(deptId)    ?? new List<BllEmployee>();
             var substitute = substituteByDept.GetValueOrDefault(deptId) ?? new List<BllEmployee>();
 
-            // Compute how many slots this shift may absorb given the remaining budget
-            int slotsForShift = shift.MaxEmployees;
-            if (totalBudget.HasValue && shiftDuration > 0)
-            {
-                double rem    = totalBudget.Value - usedBudget;
-                int canAfford = Math.Max(0, (int)(rem / shiftDuration));
-                slotsForShift = hardTotalHours
-                    ? Math.Min(shift.MaxEmployees, canAfford)
-                    : Math.Min(shift.MaxEmployees, Math.Max(shift.MinEmployees, canAfford));
-            }
+            int slotsForShift = CalcSlotCount(shift, shiftDuration, totalBudget, usedBudget, hardTotalHours);
 
             var alreadyAssigned = new HashSet<int>();
 
-            // Phase A — primary employees
             RouletteSelect(
                 primary, shift, si, shiftDuration, pattern,
                 timeOffs, workloads, empRates,
@@ -363,7 +315,6 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
                 slotsToFill: slotsForShift,
                 rng, isPrimary: true);
 
-            // Phase B — substitutes fill remaining slots
             int remaining = slotsForShift - solution[si].Count;
             if (remaining > 0)
             {
@@ -391,24 +342,24 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
     /// Roulette-wheel without replacement using τ^α × η^β weights.
     /// </summary>
     private void RouletteSelect(
-        List<BllEmployee>                pool,
-        BllShift                         shift,
-        int                              shiftIdx,
-        double                           shiftDuration,
-        SchedulePattern                  pattern,
-        Dictionary<int, List<DateRange>> timeOffs,
-        Dictionary<int, Workload>        workloads,
-        Dictionary<int, double>          empRates,
-        double[,]                        pheromone,
-        Dictionary<int, int>             empToIdx,
-        MaxLimitsRules                   maxLimits,
-        RestPeriodsRules                 restPeriods,
-        int                              monthlyNorm,
-        HashSet<int>                     alreadyAssigned,
-        List<int>                        shiftAssigned,
-        int                              slotsToFill,
-        Random                           rng,
-        bool                             isPrimary)
+        List<BllEmployee>                        pool,
+        BllShift                                 shift,
+        int                                      shiftIdx,
+        double                                   shiftDuration,
+        SchedulePattern                          pattern,
+        Dictionary<int, List<ScheduleDateRange>> timeOffs,
+        Dictionary<int, ScheduleWorkload>        workloads,
+        Dictionary<int, double>                  empRates,
+        double[,]                                pheromone,
+        Dictionary<int, int>                     empToIdx,
+        MaxLimitsRules                           maxLimits,
+        RestPeriodsRules                         restPeriods,
+        int                                      monthlyNorm,
+        HashSet<int>                             alreadyAssigned,
+        List<int>                                shiftAssigned,
+        int                                      slotsToFill,
+        Random                                   rng,
+        bool                                     isPrimary)
     {
         var candidates = new List<(int EmpId, double Score)>();
 
@@ -454,11 +405,11 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
     // ── ACO: pheromone deposit ────────────────────────────────────────────────
 
     private static void DepositPheromone(
-        double[,]          pheromone,
-        List<int>[]        solution,
+        double[,]            pheromone,
+        List<int>[]          solution,
         Dictionary<int, int> empToIdx,
-        int                shiftCount,
-        double             deposit)
+        int                  shiftCount,
+        double               deposit)
     {
         for (int si = 0; si < shiftCount; si++)
             foreach (var empId in solution[si])
@@ -468,10 +419,7 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
     // ── GA: genetic operators ─────────────────────────────────────────────────
 
     private static List<int>[] TournamentSelect(
-        List<int>[][] individuals,
-        double[]      fitnessValues,
-        int           k,
-        Random        rng)
+        List<int>[][] individuals, double[] fitnessValues, int k, Random rng)
     {
         int best = rng.Next(individuals.Length);
         for (int i = 1; i < k; i++)
@@ -483,10 +431,7 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
         return individuals[best];
     }
 
-    private static List<int>[] UniformCrossover(
-        List<int>[] parent1,
-        List<int>[] parent2,
-        Random      rng)
+    private static List<int>[] UniformCrossover(List<int>[] parent1, List<int>[] parent2, Random rng)
     {
         var child = new List<int>[parent1.Length];
         for (int i = 0; i < parent1.Length; i++)
@@ -494,32 +439,26 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
         return child;
     }
 
-    /// <summary>
-    /// Mutation: with probability <see cref="MutationRate"/> per shift, re-assign
-    /// that shift from scratch using the constraint-aware heuristic (not pheromone —
-    /// plain random shuffle, same as GA-only mutation), so mutated shifts remain valid.
-    /// </summary>
-    private List<int>[] Mutate(
-        List<int>[]                        individual,
-        List<BllShift>                     shifts,
-        List<BllEmployee>                  employees,
-        Dictionary<int, List<BllEmployee>> primaryByDept,
-        Dictionary<int, List<BllEmployee>> substituteByDept,
-        Dictionary<int, int>               shiftTypeToDeptId,
-        Dictionary<int, SchedulePattern>   shiftTypeToPattern,
-        Dictionary<int, List<DateRange>>   timeOffs,
-        MaxLimitsRules                     maxLimits,
-        RestPeriodsRules                   restPeriods,
-        int                                monthlyNorm,
-        double?                            totalBudget,
-        bool                               hardTotalHours,
-        Random                             rng)
+    private static List<int>[] Mutate(
+        List<int>[]                              individual,
+        List<BllShift>                           shifts,
+        List<BllEmployee>                        employees,
+        Dictionary<int, List<BllEmployee>>       primaryByDept,
+        Dictionary<int, List<BllEmployee>>       substituteByDept,
+        Dictionary<int, int>                     shiftTypeToDeptId,
+        Dictionary<int, SchedulePattern>         shiftTypeToPattern,
+        Dictionary<int, List<ScheduleDateRange>> timeOffs,
+        MaxLimitsRules                           maxLimits,
+        RestPeriodsRules                         restPeriods,
+        int                                      monthlyNorm,
+        double?                                  totalBudget,
+        bool                                     hardTotalHours,
+        Random                                   rng)
     {
-        var workloads  = employees.ToDictionary(e => e.Id, _ => new Workload());
+        var workloads  = employees.ToDictionary(e => e.Id, _ => new ScheduleWorkload());
         var empRates   = employees.ToDictionary(e => e.Id, e => (double)e.EmploymentRate);
         var usedBudget = 0.0;
 
-        // Rebuild workload state from the current individual
         for (int si = 0; si < shifts.Count; si++)
         {
             double dur = CalcDuration(shifts[si]);
@@ -536,7 +475,6 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
             double shiftDur   = CalcDuration(shifts[si]);
             double oldContrib = individual[si].Count * shiftDur;
 
-            // Remove this shift's contribution from workload and budget tracking
             foreach (var empId in individual[si])
             {
                 workloads[empId].TotalHours  = Math.Max(0, workloads[empId].TotalHours  - shiftDur);
@@ -552,16 +490,7 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
             var primary    = primaryByDept.GetValueOrDefault(deptId)    ?? new List<BllEmployee>();
             var substitute = substituteByDept.GetValueOrDefault(deptId) ?? new List<BllEmployee>();
 
-            // Respect budget when deciding how many slots to fill
-            int slotsForShift = shift.MaxEmployees;
-            if (totalBudget.HasValue && shiftDur > 0)
-            {
-                double rem    = totalBudget.Value - usedBudget;
-                int canAfford = Math.Max(0, (int)(rem / shiftDur));
-                slotsForShift = hardTotalHours
-                    ? Math.Min(shift.MaxEmployees, canAfford)
-                    : Math.Min(shift.MaxEmployees, Math.Max(shift.MinEmployees, canAfford));
-            }
+            int slotsForShift = CalcSlotCount(shift, shiftDur, totalBudget, usedBudget, hardTotalHours);
 
             var alreadyAssigned = new HashSet<int>();
             var newAssignment   = new List<int>();
@@ -599,25 +528,24 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
     }
 
     /// <summary>
-    /// Random-shuffle fill used during mutation: shuffles the pool then picks
-    /// eligible employees until slots are filled (no pheromone influence).
+    /// Random-shuffle fill used during mutation (no pheromone influence).
     /// </summary>
-    private void FillSlotsRandom(
-        List<BllEmployee>                pool,
-        BllShift                         shift,
-        double                           shiftDuration,
-        SchedulePattern                  pattern,
-        Dictionary<int, List<DateRange>> timeOffs,
-        Dictionary<int, Workload>        workloads,
-        Dictionary<int, double>          empRates,
-        MaxLimitsRules                   maxLimits,
-        RestPeriodsRules                 restPeriods,
-        int                              monthlyNorm,
-        HashSet<int>                     alreadyAssigned,
-        List<int>                        shiftAssigned,
-        int                              slotsToFill,
-        bool                             isPrimary,
-        Random                           rng)
+    private static void FillSlotsRandom(
+        List<BllEmployee>                        pool,
+        BllShift                                 shift,
+        double                                   shiftDuration,
+        SchedulePattern                          pattern,
+        Dictionary<int, List<ScheduleDateRange>> timeOffs,
+        Dictionary<int, ScheduleWorkload>        workloads,
+        Dictionary<int, double>                  empRates,
+        MaxLimitsRules                           maxLimits,
+        RestPeriodsRules                         restPeriods,
+        int                                      monthlyNorm,
+        HashSet<int>                             alreadyAssigned,
+        List<int>                                shiftAssigned,
+        int                                      slotsToFill,
+        bool                                     isPrimary,
+        Random                                   rng)
     {
         var shuffled = pool.OrderBy(_ => rng.Next()).ToList();
 
@@ -636,367 +564,4 @@ public class AcoGaScheduleGeneratorService : IAcoGaScheduleGeneratorService
             alreadyAssigned.Add(emp.Id);
         }
     }
-
-    // ── Shared heuristic η(employee, shift) ──────────────────────────────────
-
-    /// <summary>
-    /// Returns a desirability score. Returns 0 when a hard constraint is violated
-    /// (employee is excluded from candidate selection entirely).
-    /// </summary>
-    private static double ComputeHeuristic(
-        BllEmployee                      emp,
-        BllShift                         shift,
-        double                           shiftDuration,
-        Workload                         wl,
-        double                           rate,
-        SchedulePattern                  pattern,
-        Dictionary<int, List<DateRange>> timeOffs,
-        MaxLimitsRules                   maxLimits,
-        RestPeriodsRules                 restPeriods,
-        int                              monthlyNorm,
-        bool                             isPrimary)
-    {
-        // ── Hard constraints ──────────────────────────────────────────────────
-
-        // Time-off: vacation, sick leave, or personal day
-        if (IsOnTimeOff(emp.Id, shift.Date, timeOffs))
-            return 0;
-
-        // Minimum daily rest between consecutive days
-        if (wl.LastShiftDate.HasValue && wl.LastShiftDate.Value.AddDays(1) == shift.Date)
-        {
-            if (CalcRest(wl.LastShiftEndTime, shift.StartTime) < restPeriods.MinDailyRestHours)
-                return 0;
-        }
-
-        // Weekly hours legal ceiling (labor rules)
-        double weeklyMax = maxLimits.MaxHoursPerWeekAverage * rate;
-        if (IsSameWeek(shift.Date, wl.LastShiftDate) && wl.WeeklyHours + shiftDuration > weeklyMax)
-            return 0;
-
-        // Monthly norm cap at 120 %
-        double normCap = monthlyNorm * rate;
-        if (wl.TotalHours + shiftDuration > normCap * 1.2)
-            return 0;
-
-        // Schedule pattern (2on2off, 3on3off, 4on4off, 5on2off)
-        if (pattern != SchedulePattern.Flexible && !MatchesPattern(wl, shift.Date, pattern))
-            return 0;
-
-        // ── Soft scoring ──────────────────────────────────────────────────────
-
-        // Primary department employees are strongly preferred
-        double eta = isPrimary ? PrimaryEta : SubstituteEta;
-
-        // Reward lower accumulated workload (fair distribution)
-        double workloadRatio = normCap > 0 ? wl.TotalHours / normCap : 0;
-        eta *= Math.Max(0.1, 1.0 - workloadRatio * 0.75);
-
-        // Soft penalty when approaching monthly norm (100–120 %)
-        if (wl.TotalHours + shiftDuration > normCap)
-            eta *= 0.2;
-
-        // Soft penalty when weekly hours are above 85 % of the legal ceiling
-        if (IsSameWeek(shift.Date, wl.LastShiftDate))
-        {
-            double weeklyRatio = weeklyMax > 0
-                ? (wl.WeeklyHours + shiftDuration) / weeklyMax
-                : 0;
-            if (weeklyRatio > 0.85) eta *= 0.4;
-        }
-
-        return eta;
-    }
-
-    // ── Shared fitness function ───────────────────────────────────────────────
-
-    private static double EvaluateFitness(
-        List<int>[] solution, List<BllShift> shifts,
-        double? totalBudget = null, bool hardTotalHours = true)
-    {
-        double score    = 0;
-        var    empHours = new Dictionary<int, double>();
-
-        for (int si = 0; si < shifts.Count; si++)
-        {
-            var shift    = shifts[si];
-            var assigned = solution[si];
-            double dur   = CalcDuration(shift);
-
-            score += assigned.Count * 15.0;
-
-            score -= CoverageHelper.ShiftCoveragePenalty(
-                assigned.Count, shift.MinEmployees, shift.MaxEmployees);
-
-            foreach (var empId in assigned)
-            {
-                empHours.TryAdd(empId, 0);
-                empHours[empId] += dur;
-            }
-        }
-
-        // Penalise workload imbalance (fairness)
-        if (empHours.Count > 1)
-        {
-            double mean     = empHours.Values.Average();
-            double variance = empHours.Values.Select(h => Math.Pow(h - mean, 2)).Average();
-            score -= Math.Sqrt(variance) * 1.5;
-        }
-
-        // Penalise budget violations
-        if (totalBudget.HasValue)
-        {
-            double totalUsed  = empHours.Values.Sum();
-            double overBudget = Math.Max(0, totalUsed - totalBudget.Value);
-            if (overBudget > 0)
-                score -= overBudget * (hardTotalHours ? 500.0 : 20.0);
-        }
-
-        return score;
-    }
-
-    // ── Result assembly ───────────────────────────────────────────────────────
-
-    private static BllScheduleGenerateResult ApplySolutionAndBuildResult(
-        List<int>[]       solution,
-        List<BllShift>    allShifts,
-        List<BllEmployee> employees,
-        int               monthlyNorm,
-        double?           totalBudget = null)
-    {
-        var warnings = new List<GenerateWarningCode>();
-        var empDict  = employees.ToDictionary(e => e.Id);
-        var empRates = employees.ToDictionary(e => e.Id, e => (double)e.EmploymentRate);
-        var empHours = employees.ToDictionary(e => e.Id, _ => 0.0);
-        var underMin = false;
-
-        for (int si = 0; si < allShifts.Count; si++)
-        {
-            var shift    = allShifts[si];
-            var assigned = solution[si];
-
-            if (assigned.Count < shift.MinEmployees)
-                underMin = true;
-
-            foreach (var empId in assigned)
-            {
-                var emp = empDict[empId];
-                shift.Employees.Add(new BllEmployeeMinData
-                {
-                    Id              = empId,
-                    Name            = $"{emp.FirstName} {emp.LastName}",
-                    DepartmentNames = emp.DepartmentNames ?? new List<string>(),
-                    Position        = emp.Position
-                });
-
-                empHours[empId] += CalcDuration(shift);
-            }
-        }
-
-        if (underMin)
-            warnings.Add(GenerateWarningCode.NotEnoughEmployeesForMinimum);
-
-        if (totalBudget.HasValue)
-        {
-            double totalUsed = empHours.Values.Sum();
-            if (totalUsed > totalBudget.Value)
-                warnings.Add(GenerateWarningCode.BudgetExhausted);
-        }
-
-        bool hasHighWorkload = empHours.Any(kv =>
-            kv.Value > monthlyNorm * empRates.GetValueOrDefault(kv.Key, 1.0) * 1.25);
-
-        if (hasHighWorkload)
-            warnings.Add(GenerateWarningCode.HighWorkloadDetected);
-
-        return warnings.Any()
-            ? BllScheduleGenerateResult.WithWarnings(allShifts, warnings)
-            : BllScheduleGenerateResult.Success(allShifts);
-    }
-
-    // ── Shift skeleton builder ────────────────────────────────────────────────
-
-    private static List<BllShift> BuildEmptyShifts(
-        DateOnly            start,
-        DateOnly            end,
-        BllOrganization     org,
-        List<BllDepartment> depts)
-    {
-        var shifts  = new List<BllShift>();
-        var tempId  = -1;
-        var current = start;
-
-        while (current <= end)
-        {
-            var holiday = org.Holidays?.FirstOrDefault(
-                h => h.Month == current.Month && h.Day == current.Day);
-
-            if (holiday != null && !holiday.IsShortenedDay)
-            {
-                current = current.AddDays(1);
-                continue;
-            }
-
-            var workDay = org.WorkDays?.FirstOrDefault(wd => wd.DayOfWeek == current.DayOfWeek);
-            if (workDay == null && holiday == null)
-            {
-                current = current.AddDays(1);
-                continue;
-            }
-
-            foreach (var dept in depts)
-            {
-                if (dept.WorkingDays.Any() && !dept.WorkingDays.Contains(current.DayOfWeek))
-                    continue;
-
-                bool hasDeptHours   = dept.StartTime.HasValue && dept.EndTime.HasValue;
-                bool isShortenedDay = holiday?.IsShortenedDay == true
-                                      && holiday.StartTime.HasValue
-                                      && holiday.EndTime.HasValue;
-                bool applyWindow    = hasDeptHours || isShortenedDay;
-
-                var (wStart, wEnd) = applyWindow
-                    ? GetWorkHours(workDay, dept, holiday)
-                    : (TimeSpan.Zero, TimeSpan.Zero);
-
-                foreach (var st in dept.ShiftTypes)
-                {
-                    if (applyWindow && !(st.StartTime >= wStart && st.EndTime <= wEnd))
-                        continue;
-
-                    shifts.Add(new BllShift
-                    {
-                        Id            = tempId--,
-                        Date          = current,
-                        ShiftTypeId   = st.Id,
-                        ShiftTypeName = st.Name,
-                        StartTime     = st.StartTime,
-                        EndTime       = st.EndTime,
-                        MinEmployees  = st.MinEmployees,
-                        MaxEmployees  = st.MaxEmployees,
-                        Color         = st.Color,
-                        BreakDuration = st.BreakDuration,
-                        Employees     = new List<BllEmployeeMinData>()
-                    });
-                }
-            }
-
-            current = current.AddDays(1);
-        }
-
-        return shifts;
-    }
-
-    // ── Small helpers ─────────────────────────────────────────────────────────
-
-    private static (TimeSpan Start, TimeSpan End) GetWorkHours(
-        BllWorkDay? workDay, BllDepartment dept, BllHoliday? holiday)
-    {
-        if (holiday?.IsShortenedDay == true && holiday.StartTime.HasValue && holiday.EndTime.HasValue)
-            return (holiday.StartTime.Value, holiday.EndTime.Value);
-        if (dept.StartTime.HasValue && dept.EndTime.HasValue)
-            return (dept.StartTime.Value, dept.EndTime.Value);
-        if (workDay != null)
-            return (TimeSpan.Parse(workDay.StartTime), TimeSpan.Parse(workDay.EndTime));
-        return (TimeSpan.Zero, TimeSpan.Zero);
-    }
-
-    private async Task<Dictionary<int, List<DateRange>>> LoadTimeOffsAsync(
-        List<int> empIds, DateOnly start, DateOnly end)
-    {
-        var result = empIds.ToDictionary(id => id, _ => new List<DateRange>());
-
-        var vacations = await _context.Vacations
-            .Where(v => empIds.Contains(v.EmployeeId) && v.StartDate <= end && v.EndDate >= start)
-            .ToListAsync();
-
-        var sickLeaves = await _context.SickLeaves
-            .Where(s => empIds.Contains(s.EmployeeId) && s.StartDate <= end && s.EndDate >= start)
-            .ToListAsync();
-
-        var personalDays = await _context.PersonalDays
-            .Where(p => empIds.Contains(p.EmployeeId) && p.StartDate <= end && p.EndDate >= start)
-            .ToListAsync();
-
-        foreach (var v in vacations)
-            result[v.EmployeeId].Add(new DateRange(v.StartDate, v.EndDate));
-        foreach (var s in sickLeaves)
-            result[s.EmployeeId].Add(new DateRange(s.StartDate, s.EndDate));
-        foreach (var p in personalDays)
-            result[p.EmployeeId].Add(new DateRange(p.StartDate, p.EndDate));
-
-        return result;
-    }
-
-    private static bool IsOnTimeOff(int empId, DateOnly date, Dictionary<int, List<DateRange>> timeOffs) =>
-        timeOffs.TryGetValue(empId, out var ranges)
-        && ranges.Any(r => date >= r.Start && date <= r.End);
-
-    private static double CalcDuration(BllShift shift)
-    {
-        var d = shift.EndTime - shift.StartTime;
-        if (d.TotalHours < 0) d = d.Add(TimeSpan.FromHours(24));
-        if (shift.BreakDuration.HasValue) d -= shift.BreakDuration.Value;
-        return d.TotalHours;
-    }
-
-    private static double CalcRest(TimeSpan? lastEnd, TimeSpan nextStart)
-    {
-        if (!lastEnd.HasValue) return 24;
-        var r = nextStart - lastEnd.Value;
-        return r.TotalHours < 0 ? r.Add(TimeSpan.FromHours(24)).TotalHours : r.TotalHours;
-    }
-
-    private static bool IsSameWeek(DateOnly a, DateOnly? b)
-    {
-        if (!b.HasValue) return false;
-        static int WeekNum(DateOnly d) =>
-            (d.DayNumber - new DateOnly(d.Year, 1, 1).DayNumber) / 7;
-        return WeekNum(a) == WeekNum(b.Value);
-    }
-
-    private static bool MatchesPattern(Workload wl, DateOnly date, SchedulePattern pattern)
-    {
-        if (wl.LastShiftDate == null) return true;
-        int daysSince = date.DayNumber - wl.LastShiftDate.Value.DayNumber;
-        return pattern switch
-        {
-            SchedulePattern.TwoOnTwoOff     => wl.ConsecutiveDays < 2 || daysSince >= 2,
-            SchedulePattern.ThreeOnThreeOff => wl.ConsecutiveDays < 3 || daysSince >= 3,
-            SchedulePattern.FourOnFourOff   => wl.ConsecutiveDays < 4 || daysSince >= 4,
-            SchedulePattern.FiveOnTwoOff    => wl.ConsecutiveDays < 5 || daysSince >= 2,
-            _                               => true
-        };
-    }
-
-    private static void UpdateWorkload(Workload wl, BllShift shift, double hours)
-    {
-        wl.TotalHours += hours;
-
-        if (IsSameWeek(shift.Date, wl.LastShiftDate))
-            wl.WeeklyHours += hours;
-        else
-            wl.WeeklyHours = hours;
-
-        wl.ConsecutiveDays = wl.LastShiftDate.HasValue
-                          && wl.LastShiftDate.Value.AddDays(1) == shift.Date
-            ? wl.ConsecutiveDays + 1
-            : 1;
-
-        wl.LastShiftDate    = shift.Date;
-        wl.LastShiftEndTime = shift.EndTime;
-    }
-
-    // ── Private types ─────────────────────────────────────────────────────────
-
-    private class Workload
-    {
-        public double    TotalHours       { get; set; }
-        public double    WeeklyHours      { get; set; }
-        public DateOnly? LastShiftDate    { get; set; }
-        public TimeSpan? LastShiftEndTime { get; set; }
-        public int       ConsecutiveDays  { get; set; }
-    }
-
-    private record DateRange(DateOnly Start, DateOnly End);
 }
