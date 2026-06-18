@@ -58,7 +58,8 @@ services:
     environment:
       # Overrides NEXT_PUBLIC_API_URL at runtime for server-side code (middleware, SSR).
       # Uses the internal Docker network name so the Next.js server can reach the backend.
-      NEXT_PUBLIC_API_URL: http://backend:8080/api
+      NEXT_PUBLIC_API_URL: http://localhost:8080/api
+      INTERNAL_API_URL: http://backend:8080/api
 
 volumes:
   postgres_data:

@@ -24,7 +24,7 @@ export async function middleware(req: NextRequest) {
     return response;
   }
 
-  const meRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
+  const meRes = await fetch(`${process.env.INTERNAL_API_URL}/auth/me`, {
     headers: { cookie: req.headers.get("cookie") ?? "" },
   });
 
