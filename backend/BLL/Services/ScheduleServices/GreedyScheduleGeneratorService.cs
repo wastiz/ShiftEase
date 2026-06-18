@@ -16,41 +16,30 @@ public class GreedyScheduleGeneratorService : IScheduleGeneratorService
     private readonly IEmployeeService      _employeeService;
     private readonly IDepartmentService    _departmentService;
     private readonly AppDbContext          _context;
-    private readonly IAnalyticsService     _analytics;
 
     public GreedyScheduleGeneratorService(
         IOrganizationService  organizationService,
         IShiftTemplateService shiftTemplateService,
         IEmployeeService      employeeService,
         IDepartmentService    departmentService,
-        AppDbContext          context,
-        IAnalyticsService     analytics)
+        AppDbContext          context
+        )
     {
         _organizationService  = organizationService;
         _shiftTemplateService = shiftTemplateService;
         _employeeService      = employeeService;
         _departmentService    = departmentService;
         _context              = context;
-        _analytics            = analytics;
     }
 
     public async Task<BllScheduleGenerateResult> GenerateGreedyScheduleAsync(
         int orgId,
         BllScheduleGenerateRequest request)
     {
-        _analytics.Track(AnalyticsEventTypes.ScheduleGenerationRequested, organizationId: orgId,
-            metadata: new() { ["algorithm"] = "greedy" });
 
         var sw = System.Diagnostics.Stopwatch.StartNew();
         var result = await GenerateGreedyCoreAsync(orgId, request);
         sw.Stop();
-
-        if (result.Status == GenerateStatus.Error)
-            _analytics.Track(AnalyticsEventTypes.ScheduleGenerationFailed, organizationId: orgId,
-                metadata: new() { ["algorithm"] = "greedy", ["duration_ms"] = (object?)sw.ElapsedMilliseconds, ["error"] = result.Error?.ToString() });
-        else
-            _analytics.Track(AnalyticsEventTypes.ScheduleGenerationSuccess, organizationId: orgId,
-                metadata: new() { ["algorithm"] = "greedy", ["duration_ms"] = (object?)sw.ElapsedMilliseconds, ["shift_count"] = result.Shifts.Count, ["employee_count"] = result.Shifts.SelectMany(s => s.Employees).Select(e => e.Id).Distinct().Count() });
 
         return result;
     }

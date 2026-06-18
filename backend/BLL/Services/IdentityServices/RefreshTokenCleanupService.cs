@@ -21,7 +21,7 @@ public class RefreshTokenCleanupService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        await Task.Delay(Timeout.Infinite, _lifetime.ApplicationStarted);
+        await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
         
         while (!stoppingToken.IsCancellationRequested)
         {

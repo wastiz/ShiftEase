@@ -37,7 +37,6 @@ public class GaScheduleGeneratorService : IGaScheduleGeneratorService
     private readonly IDepartmentService   _departmentService;
     private readonly ILaborRulesProvider  _laborRules;
     private readonly AppDbContext         _context;
-    private readonly IAnalyticsService    _analytics;
 
     // ── GA hyperparameters ────────────────────────────────────────────────────
     private const double CrossoverRate  = 0.80;
@@ -50,15 +49,14 @@ public class GaScheduleGeneratorService : IGaScheduleGeneratorService
         IEmployeeService     employeeService,
         IDepartmentService   departmentService,
         ILaborRulesProvider  laborRules,
-        AppDbContext         context,
-        IAnalyticsService    analytics)
+        AppDbContext         context
+        )
     {
         _organizationService = organizationService;
         _employeeService     = employeeService;
         _departmentService   = departmentService;
         _laborRules          = laborRules;
         _context             = context;
-        _analytics           = analytics;
     }
 
     // ── Public entry point ────────────────────────────────────────────────────
@@ -66,19 +64,10 @@ public class GaScheduleGeneratorService : IGaScheduleGeneratorService
     public async Task<BllScheduleGenerateResult> GenerateGaScheduleAsync(
         int orgId, BllGaScheduleGenerateRequest request)
     {
-        _analytics.Track(AnalyticsEventTypes.ScheduleGenerationRequested, organizationId: orgId,
-            metadata: new() { ["algorithm"] = "ga" });
 
         var sw = System.Diagnostics.Stopwatch.StartNew();
         var result = await GenerateGaCoreAsync(orgId, request);
         sw.Stop();
-
-        if (result.Status == GenerateStatus.Error)
-            _analytics.Track(AnalyticsEventTypes.ScheduleGenerationFailed, organizationId: orgId,
-                metadata: new() { ["algorithm"] = "ga", ["duration_ms"] = (object?)sw.ElapsedMilliseconds, ["error"] = result.Error?.ToString() });
-        else
-            _analytics.Track(AnalyticsEventTypes.ScheduleGenerationSuccess, organizationId: orgId,
-                metadata: new() { ["algorithm"] = "ga", ["duration_ms"] = (object?)sw.ElapsedMilliseconds, ["shift_count"] = result.Shifts.Count, ["employee_count"] = result.Shifts.SelectMany(s => s.Employees).Select(e => e.Id).Distinct().Count() });
 
         return result;
     }
